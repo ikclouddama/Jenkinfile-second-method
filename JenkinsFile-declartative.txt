@@ -1,0 +1,33 @@
+#Author Ibrehima Keita Devops Engineer US-Silver Spring
+# He an easy to to work with pipeline project 
+# Go to global confuguration and install maven to configure Maven_Home to ======> /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven
+# Run the following command and everything works without declaring a function.
+
+
+node{
+   stage('gitSRC'){
+         git 'https://github.com/Keita-enterprise/maven-web-application.git'
+        
+    }
+    stage('Maven'){
+        'sh mvn package'
+    }
+    stage("SonaqubeTest"){
+        'sh mvn sonar:sonar'
+    }
+    stage("DeployToUAT"){
+        'sh mvn deploy'
+    }
+    stage("ApprovalGate"){
+         timeout(time:5, unit:'DAYS') {
+        input message:'Approve deployment?', submitter: 'it-ops'
+}
+    }
+    stage('DeployToProduction'){
+        'sh echo Allah Akbar'
+       
+    }
+    stage('EmailNotification'){
+        
+    }
+}
