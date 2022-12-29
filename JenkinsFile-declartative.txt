@@ -1,5 +1,5 @@
 #Author Ibrehima Keita Devops Engineer US-Silver Spring
-# He an easy to to work with pipeline project 
+# Here  an easy to to work with pipeline project 
 # Go to global confuguration and install maven to configure Maven_Home to be ======> /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven
 # Run the following command and everything works without declaring a function.
 
